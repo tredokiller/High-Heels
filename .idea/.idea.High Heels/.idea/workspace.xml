@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="" />
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/AnimationController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/AnimationController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +19,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Common/Enums/Directions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Heels/Scripts/Heels.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/HeelsSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
@@ -33,6 +43,7 @@
     "Discover.Launch.Via.Unity": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
@@ -95,8 +106,17 @@
       <workItem from="1695129638154" duration="7388000" />
       <workItem from="1695192451527" duration="5597000" />
       <workItem from="1695198412940" duration="304000" />
-      <workItem from="1695198796303" duration="210000" />
+      <workItem from="1695198796303" duration="2166000" />
+      <workItem from="1695214661260" duration="9147000" />
     </task>
+    <task id="LOCAL-00001" summary="Created Project">
+      <created>1695199038752</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695199038752</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,5 +142,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Created Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Project" />
   </component>
 </project>
