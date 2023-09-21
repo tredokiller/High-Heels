@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Player.Scripts
 {
     public class HeelsSpawner : MonoBehaviour
     {
-        private const float DistanceBetweenHeels = 1.5f;
+        public const float DistanceBetweenHeels = 1.5f;
 
         [SerializeField] private Transform leftFoot;
         [SerializeField] private Transform rightFoot;
@@ -15,11 +16,13 @@ namespace Player.Scripts
         
         [SerializeField] private GameObject heelsPrefab;
 
-        private List<Heels.Scripts.Heels> _heels;
+        public List<Heels.Scripts.Heels> Heels { private set; get; }
 
-        private void Start()
+        public Action OnHeelsUpdated;
+
+        private void Awake()
         {
-            _heels = new List<Heels.Scripts.Heels>();
+            Heels = new List<Heels.Scripts.Heels>();
         }
 
         private void Update()
@@ -34,27 +37,40 @@ namespace Player.Scripts
         public void SpawnHeels()
         {
             var heelsPref = Instantiate(heelsPrefab, transform);
+            
             var heels = heelsPref.GetComponent<Heels.Scripts.Heels>();
             
             var leftHeel = heels.GetLeftHeel();
             var rightHeel = heels.GetRightHeel();
             
-            leftHeel.SetParent(leftFootTransformTranslator); 
-            leftHeel.localRotation = Quaternion.Euler(Vector3.zero);
-            
+            leftHeel.SetParent(leftFootTransformTranslator);
             rightHeel.SetParent(rightFootTransformTranslator);
-            rightHeel.localRotation = Quaternion.Euler(Vector3.zero);
+
+            SetHeelsPositionRotation(leftHeel, rightHeel, out var heelsSpawnPosition);
+            heelsPref.transform.localPosition = new Vector3(0,  heelsSpawnPosition.y,  0);
             
-            var heelsSpawnPosition = Vector3.down *_heels.Count * DistanceBetweenHeels;
-            if (_heels.Count == 0)
+            Heels.Add(heels);
+            
+            OnHeelsUpdated?.Invoke();
+        }
+
+        private void SetHeelsPositionRotation(Transform leftHeel, Transform rightHeel ,out Vector3 heelsSpawnPosition)
+        {
+            heelsSpawnPosition = Vector3.down *Heels.Count * (DistanceBetweenHeels);
+            if (Heels.Count == 0)
             {
                 heelsSpawnPosition = Vector3.down * 1 * (DistanceBetweenHeels / 2);
             }
+            else if (Heels.Count == 1)
+            {
+                heelsSpawnPosition = Vector3.down *Heels.Count * (DistanceBetweenHeels + DistanceBetweenHeels/2);
+            }
+
+            leftHeel.transform.localPosition = heelsSpawnPosition;
+            rightHeel.transform.localPosition = heelsSpawnPosition;
             
-            leftHeel.localPosition = heelsSpawnPosition;
-            rightHeel.localPosition = heelsSpawnPosition;
-            
-            _heels.Add(heels);
+            leftHeel.localRotation = Quaternion.Euler(Vector3.zero);
+            rightHeel.localRotation = Quaternion.Euler(Vector3.zero);
         }
     }
 }

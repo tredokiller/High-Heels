@@ -1,5 +1,3 @@
-using System;
-using Common.Enums;
 using UnityEngine;
 
 namespace Heels.Scripts
@@ -8,16 +6,6 @@ namespace Heels.Scripts
     {
         [SerializeField] private Transform leftHeel;
         [SerializeField] private Transform rightHeel;
-
-        public void SetPosition(Directions heel, Vector3 position)
-        {
-            if (heel == Directions.Left)
-            {
-                leftHeel.position = position;
-                return;
-            }
-            rightHeel.position = position;
-        }
 
         public Transform GetLeftHeel()
         {
