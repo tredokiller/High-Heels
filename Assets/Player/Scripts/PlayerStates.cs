@@ -3,10 +3,11 @@ using UnityEngine;
 namespace Player.Scripts
 {
     public enum PlayerStates
-    {
-       Walking,
-       WinWalking,
-       WinDancing,
-       Death
+    { 
+        Idling, 
+        Walking,
+        WinWalking, 
+        WinDancing,
+        Death
     }
 }
