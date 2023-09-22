@@ -3,8 +3,6 @@ using DG.Tweening;
 using Managers;
 using Player.Scripts.States;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Zenject;
 using StateMachine = States.StateMachine;
 
@@ -16,26 +14,35 @@ namespace Player.Scripts
     {
         [Header("Main")] 
         [SerializeField] private float moveSpeed = 3;
-        [SerializeField] private HeelsSpawner heelsSpawner;
-        [FormerlySerializedAs("theLowestPoint")] [SerializeField] private TheLowestHeelsPoint theLowestHeelsPoint;
+        [SerializeField] private TheLowestHeelsPoint theLowestHeelsPoint;
+        [SerializeField] private LayerMask groundLayerMask;
+        [SerializeField] private LayerMask obstacleLayerMask;
 
-        public const float MaxDistanceToFallZone = 1f;
+        [Header("RagDoll")]
+        [SerializeField] private Rigidbody[] ragDollRigidbodies;
+        private Collider[] ragDollColliders;
         
+        public const float MaxSideDistanceToMove= 3.5f;
+
         [Header("Sensitivity")] 
-        [SerializeField, Range(0, 15)] private float horizontalSensitivity = 0.1f;
+        [SerializeField, Range(0, 150)] private float horizontalSensitivity = 0.1f;
         
         private StateMachine _stateMachine;
-
         private InputManager _inputManager;
+
+        public HeelsSpawner HeelsSpawner { private set; get; }
         public InputMap.PlayerActions PlayerActions { private set; get; }
         public Vector2 InputPlayer { private set; get; }
+        public Vector2 NonZeroInputPlayer { private set; get; }
         public Rigidbody Rb { private set; get; }
         public PlayerAnimationController PlayerAnimationController { private set; get; }
         public Animator PlayerAnimator { private set; get; }
 
+        public Vector3 StartPositionForMovement { private set; get; }
+
         private IdleState idleState;
         private WalkState walkState;
-
+        private DeathState deathState;
 
         private void Awake()
         {
@@ -43,46 +50,89 @@ namespace Player.Scripts
             
             PlayerAnimator = GetComponent<Animator>();
             PlayerAnimationController = new PlayerAnimationController(this);
-            
+
             _stateMachine = new StateMachine();
 
             idleState = new IdleState(this);
             walkState = new WalkState(this);
-
+            deathState = new DeathState(this);
+            
+            GetCollidersFromRagDollRigidbodies();
+            EnableRagDoll(false);
+            
             _stateMachine.SetState(walkState);
         }
 
         [Inject]
-        private void Constructor(InputManager inputManager)
+        private void Constructor(InputManager inputManager, HeelsSpawner heelsSpawner)
         {
             _inputManager = inputManager ? inputManager : throw new ArgumentNullException(nameof(inputManager));
+            HeelsSpawner = heelsSpawner ? heelsSpawner : throw new ArgumentNullException(nameof(heelsSpawner));
             PlayerActions = _inputManager.GetPlayerActions();
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            _inputManager.GetPlayerActions().TestButton.started += SpawnHeels;
+            StartPositionForMovement = transform.position;
         }
 
-        private void SpawnHeels(InputAction.CallbackContext obj)
+        public void AddHeels()
         {
-            transform.DOMoveY(transform.position.y + HeelsSpawner.DistanceBetweenHeels, 0.3f);
-            heelsSpawner.SpawnHeels();
+            transform.DOMoveY(transform.position.y + HeelsSpawner.DistanceBetweenHeels / 1.3f, 0.2f);
+            HeelsSpawner.SpawnHeels();
         }
 
+        private void GetCollidersFromRagDollRigidbodies()
+        {
+            ragDollColliders = new Collider[ragDollRigidbodies.Length];
+            for (int i = 0; i < ragDollRigidbodies.Length; i++)
+            {
+                ragDollColliders[i] = ragDollRigidbodies[i].GetComponent<Collider>();
+            }
+        }
+        
+        public void EnableRagDoll(bool isEnabled)
+        {
+            for (int i = 0; i < ragDollRigidbodies.Length; i++)
+            {
+                ragDollColliders[i].enabled = isEnabled;
+                ragDollRigidbodies[i].isKinematic = !isEnabled;
+            }
+        }
+
+        public void Move(Vector3 velocity, bool isClamped)
+        {
+            if (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1f , groundLayerMask))
+            {
+                if (HeelsSpawner.Heels.Count > 0)
+                {
+                    Rb.constraints |= RigidbodyConstraints.FreezePositionY;
+                }
+            }
+            else
+            {
+                Rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            }
+            
+            var newPosition = transform.position + velocity * Time.fixedDeltaTime;
+            newPosition.x = Mathf.Clamp(newPosition.x, StartPositionForMovement.x - MaxSideDistanceToMove, 
+                StartPositionForMovement.x + MaxSideDistanceToMove);
+            
+            Rb.MovePosition(newPosition);
+        }
+        
         private void Update()
         {
             InputPlayer = PlayerActions.TouchVelocity.ReadValue<Vector2>();
-        }
-
-        void FixedUpdate()
-        {
-            _stateMachine.UpdateStateMachine();
+            if (InputPlayer != Vector2.zero)
+            {
+                NonZeroInputPlayer = InputPlayer;
+            }
         }
         
-        private void OnDisable()
+        private void FixedUpdate()
         {
-            _inputManager.GetPlayerActions().TestButton.started -= SpawnHeels;
+            _stateMachine.UpdateStateMachine();
         }
 
         public float GetMoveSpeed()
@@ -98,6 +148,11 @@ namespace Player.Scripts
         public Transform GetTheLowestPoint()
         {
             return theLowestHeelsPoint.transform;
+        }
+
+        public LayerMask GetGroundLayerMask()
+        {
+            return groundLayerMask;
         }
     }
 }
