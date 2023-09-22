@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Player.Scripts
 {
     public class HeelsSpawner : MonoBehaviour
     {
-        public const float DistanceBetweenHeels = 1.5f;
+        public const float DistanceBetweenHeels = 1.7f;
 
         [SerializeField] private Transform leftFoot;
         [SerializeField] private Transform rightFoot;
@@ -16,6 +17,8 @@ namespace Player.Scripts
         
         [SerializeField] private GameObject heelsPrefab;
 
+        [Inject] private DiContainer _diContainer;
+        
         public List<Heels.Scripts.Heels> Heels { private set; get; }
 
         public Action OnHeelsUpdated;
@@ -36,7 +39,7 @@ namespace Player.Scripts
 
         public void SpawnHeels()
         {
-            var heelsPref = Instantiate(heelsPrefab, transform);
+            var heelsPref = _diContainer.InstantiatePrefab(heelsPrefab, transform);
             
             var heels = heelsPref.GetComponent<Heels.Scripts.Heels>();
             
@@ -51,7 +54,7 @@ namespace Player.Scripts
             
             Heels.Add(heels);
             
-            OnHeelsUpdated?.Invoke();
+            OnHeelsUpdated.Invoke();
         }
 
         private void SetHeelsPositionRotation(Transform leftHeel, Transform rightHeel ,out Vector3 heelsSpawnPosition)
@@ -71,6 +74,20 @@ namespace Player.Scripts
             
             leftHeel.localRotation = Quaternion.Euler(Vector3.zero);
             rightHeel.localRotation = Quaternion.Euler(Vector3.zero);
+        }
+
+        public void TakeOffHeels(Heels.Scripts.Heels heels)
+        {
+            if (Heels.Contains(heels))
+            {
+                Heels.Remove(heels);
+                
+                heels.GetLeftHeel().SetParent(heels.transform);
+                heels.GetRightHeel().SetParent(heels.transform);
+                heels.transform.SetParent(null);
+                
+                OnHeelsUpdated.Invoke();
+            }
         }
     }
 }
