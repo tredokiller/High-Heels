@@ -5,13 +5,16 @@ using Zenject;
 
 namespace Player.Scripts
 {
-    public class HeelsSpawner : MonoBehaviour
+    public class HeelsManager : MonoBehaviour
     {
         public const float DistanceBetweenHeels = 1.7f;
 
         [SerializeField] private Transform leftFoot;
         [SerializeField] private Transform rightFoot;
 
+        [SerializeField] private Transform leftThigh;
+            
+            
         [SerializeField] private Transform leftFootTransformTranslator;
         [SerializeField] private Transform rightFootTransformTranslator;
         
@@ -33,8 +36,9 @@ namespace Player.Scripts
             leftFootTransformTranslator.position = leftFoot.position;
             rightFootTransformTranslator.position = rightFoot.position;
 
-            leftFootTransformTranslator.localRotation = Quaternion.Euler(leftFoot.localRotation.eulerAngles.x, 0, leftFoot.localRotation.eulerAngles.z - 3);
-            rightFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x, 0, rightFoot.localRotation.eulerAngles.z + 3);
+            //leftFootTransformTranslator.localRotation = Quaternion.Euler(leftFoot.localRotation.eulerAngles.x /2, leftFoot.localRotation.y, 0);
+            leftFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x / 2, 0, leftFoot.localRotation.eulerAngles.z);
+            rightFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x / 2, 0, rightFoot.localRotation.eulerAngles.z + 3);
         }
 
         public void SpawnHeels()
