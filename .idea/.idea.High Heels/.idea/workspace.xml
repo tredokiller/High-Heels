@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Fixed Bugs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,37 +15,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Installers/LevelInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Obstacle/Block.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Obstacle/Block.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Materials/WinDance.anim" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Materials/WinWalk.anim" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/HeelsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerIKController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/PlayerStates.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/DeathState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/TwineState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/WalkState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/WalkState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/TheLowestHeelsPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/Level01.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/Level02.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/Level03.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/WinPlatform/MultiplierZone/MultiplierZone.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/WinPlatform/Scripts/WinPlatform.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/WinPlatform/WinPlatform.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/Zones/Scripts/Zone.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/Zones/Scripts/Zone.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/IState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/StateBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/States/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/UI/UI.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.animation.rigging@1.2.1/Runtime/Utils/BoneRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.State/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -143,6 +122,7 @@
       <workItem from="1695541457569" duration="18189000" />
       <workItem from="1695629238374" duration="23795000" />
       <workItem from="1695709731345" duration="23966000" />
+      <workItem from="1695755993491" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1695199038752</created>
@@ -256,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695736344670</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed Bugs">
+      <created>1695758624048</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1695758624048</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +284,8 @@
     <MESSAGE value="Small changes" />
     <MESSAGE value="Bug Fixes" />
     <MESSAGE value="Bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
+    <MESSAGE value="Fixed Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
