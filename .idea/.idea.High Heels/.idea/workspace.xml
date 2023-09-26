@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Bug Fixes">
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,10 +108,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15336">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15336" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -150,7 +142,7 @@
       <workItem from="1695485521410" duration="12404000" />
       <workItem from="1695541457569" duration="18189000" />
       <workItem from="1695629238374" duration="23795000" />
-      <workItem from="1695709731345" duration="23034000" />
+      <workItem from="1695709731345" duration="23966000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1695199038752</created>
@@ -257,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695733850238</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Bug fixes">
+      <created>1695736344670</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1695736344670</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +296,8 @@
     <MESSAGE value="Added IK" />
     <MESSAGE value="Small changes" />
     <MESSAGE value="Bug Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixes" />
+    <MESSAGE value="Bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

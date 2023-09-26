@@ -171,11 +171,11 @@ namespace Player.Scripts
             
             if (isClamped)
             {
-                var position = Rb.position + velocity * Time.deltaTime;
+                var position = Rb.position + velocity * Time.fixedDeltaTime;
                 position.x = Mathf.Clamp(position.x, StartPositionForMovement.x - MaxSideDistanceToMove, 
                     StartPositionForMovement.x + MaxSideDistanceToMove);
 
-                Vector3 neededVelocity = (position - Rb.position) / Time.deltaTime;
+                Vector3 neededVelocity = (position - Rb.position) / Time.fixedDeltaTime;
                 
                 velocity = neededVelocity;
             }
