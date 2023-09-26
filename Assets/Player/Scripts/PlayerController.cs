@@ -163,6 +163,11 @@ namespace Player.Scripts
             {
                Rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             }
+
+            if (Rb.velocity.y < -7f)
+            {
+                SetState(PlayerStates.Death);
+            }
             
             if (isClamped)
             {

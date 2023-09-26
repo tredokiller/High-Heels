@@ -192,13 +192,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176673518477669767}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.54167527, y: 0.45451945, z: 0.45451945, w: 0.54167527}
-  m_LocalPosition: {x: 5.290214, y: 3, z: -4.28}
+  m_LocalRotation: {x: -0.55914015, y: 0.43285367, z: 0.43285367, w: 0.55914015}
+  m_LocalPosition: {x: 3.7923298, y: 3, z: -4.2884216}
   m_LocalScale: {x: 11.519232, y: 1.4, z: 9.534538}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3124200695985534290}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 80}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 75.49}
 --- !u!33 &7105395709882526297
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -226,8 +226,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.15831672, z: 1}
+  m_Center: {x: -9.813602e-10, y: -0.42084095, z: 2.5301642e-16}
 --- !u!1 &1567123102011752481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,13 +1641,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9115895206743640776}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5539386, y: -0.4394906, z: -0.4394906, w: 0.5539386}
+  m_LocalRotation: {x: -0.56751496, y: -0.4218137, z: -0.4218137, w: 0.56751496}
   m_LocalPosition: {x: -1.459786, y: 3, z: -4.330002}
   m_LocalScale: {x: 11.519232, y: 0.523068, z: 9.534538}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3124200695985534290}
-  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: -76.856}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -73.244}
 --- !u!33 &5859990592799866061
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772119009792187847, guid: 3a7dc8442a6abfe43ac76325c8aad593, type: 3}
       propertyPath: multiplyValue
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -23,7 +23,7 @@ namespace Player.Scripts.States
 
             Controller.Move(velocity, false);
 
-            if (Mathf.Abs(Controller.transform.rotation.z) >= Mathf.Deg2Rad * PlayerController.MaxAngleToFallOnTwin || Controller.Rb.velocity.y < -7f)
+            if (Mathf.Abs(Controller.transform.rotation.z) >= Mathf.Deg2Rad * PlayerController.MaxAngleToFallOnTwin)
             {
                 Controller.SetState(PlayerStates.Death);
             }
