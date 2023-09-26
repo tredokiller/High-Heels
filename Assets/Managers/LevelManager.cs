@@ -1,6 +1,8 @@
 using System;
+using Diamonds.Scripts;
 using Player.Scripts;
 using Scenes.Folder;
+using Scenes.WinPlatform.MultiplierZone;
 using UI.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,11 +25,15 @@ namespace Managers
         public Action OnLevelCompleted;
         public Action OnLevelFailed;
         public Action OnLevelStarted;
-        
+        public Action OnDiamondsUpdated;
+
         public static  Action<Levels> OnLevelLoaded;
 
         public static Action OnLevelRestart;
         public static Action OnLevelExit;
+
+        public int CollectedDiamonds { private set; get; }
+        public int MultipliedDiamonds { private set; get; }
         
         private void Awake()
         {
@@ -42,12 +48,28 @@ namespace Managers
             
             _levelUIManager.OnNextLevelButtonPressed += ExitLevel;
             _levelUIManager.OnRestartLevelButtonPressed += RestartLevel;
+            MultiplierZone.OnMultiplierStand += MultiplyDiamonds; 
+
+            Diamond.OnDiamondCollected += AddDiamond;
 
         }
 
         private void ScreenTouched(InputAction.CallbackContext obj)
         {
             StartLevel();
+        }
+
+        private void AddDiamond()
+        {
+            CollectedDiamonds += 1;
+            MultipliedDiamonds = CollectedDiamonds;
+            OnDiamondsUpdated.Invoke();
+        }
+
+        private void MultiplyDiamonds(int multiplier)
+        {
+            MultipliedDiamonds = CollectedDiamonds * multiplier;
+            OnDiamondsUpdated.Invoke();
         }
 
         private void CompleteLevel(PlayerStates state)
@@ -84,6 +106,11 @@ namespace Managers
         {
             OnLevelRestart.Invoke();
         }
+
+        public Levels GetLevel()
+        {
+            return level;
+        }
         
         private void OnDisable()
         {
@@ -93,6 +120,7 @@ namespace Managers
             
             _levelUIManager.OnNextLevelButtonPressed -= ExitLevel;
             _levelUIManager.OnRestartLevelButtonPressed -= RestartLevel;
+            Diamond.OnDiamondCollected -= AddDiamond;
         }
     }
 }

@@ -75,3 +75,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 3836000950268557453, guid: b0df0c5891250084394ce977214ef4e9, type: 3}
+  gameManager: {fileID: 8468240585128290611, guid: 17e72098f9ba68440b51d395eeffa781, type: 3}

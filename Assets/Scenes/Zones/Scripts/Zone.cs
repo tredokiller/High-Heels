@@ -25,6 +25,10 @@ namespace Scenes.Zones.Scripts
 
         private void Interact()
         {
+            if (playerController.CurrentPlayerStateType == PlayerStates.Death)
+            {
+                return;
+            }
             switch (zoneType)
             {
                 case ZoneTypes.Walk:

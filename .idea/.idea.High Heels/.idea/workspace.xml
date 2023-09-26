@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="">
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Updated States">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Heels/Materials/HeelsMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/Materials/HeelsMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputMap.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputMap.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Installers/DontDestroyOnLoadInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Installers/DontDestroyOnLoadInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Installers/LevelInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Installers/LevelInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Managers/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obstacle/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Obstacle/Block.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/AnimationController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/AnimationController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Walk.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Girl.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Girl.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Materials/Twine.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Materials/Twine.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/HeelsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerAnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/States/StickWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/States/StickWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/TheLowestHeelsPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/TheLowestHeelsPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/ZenjectBinding.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/ZenjectBinding.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Folder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Folder/Levels.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Folder/Levels.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WinPlatform/WinPlatform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WinPlatform/WinPlatform.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Zones/Scripts/Zone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Zones/Scripts/Zone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +49,38 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Common/Enums/Directions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Common/Tags/Tags.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Diamonds/Scripts/Diamond.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Heels/Scripts/Heels.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/HeelsSpawner.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/HeelsSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Installers/LevelInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Materials/WinDance.anim" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Materials/WinWalk.anim" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/HeelsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerIKController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/PlayerStates.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/PlayerStates.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/DeathState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/TwineState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/WalkState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/Scripts/States/WalkState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Scripts/TheLowestHeelsPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/WinPlatform/MultiplierZone/MultiplierZone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/WinPlatform/Scripts/WinPlatform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/WinPlatform/WinPlatform.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Zones/Scripts/Zone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Scenes/Zones/Scripts/Zone.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/IState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/StateBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/States/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/States/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/UI/UI.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.animation.rigging@1.2.1/Runtime/Utils/BoneRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.State/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -38,24 +93,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\viarm\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\viarm\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\viarm\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\viarm\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\viarm\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\viarm\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.8f1\Editor\Unity.exe" />
@@ -83,10 +138,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15336">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="15336" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -107,7 +162,17 @@
       <workItem from="1695192451527" duration="5597000" />
       <workItem from="1695198412940" duration="304000" />
       <workItem from="1695198796303" duration="2166000" />
-      <workItem from="1695214661260" duration="9147000" />
+      <workItem from="1695214661260" duration="13853000" />
+      <workItem from="1695287486053" duration="16341000" />
+      <workItem from="1695317324038" duration="4860000" />
+      <workItem from="1695368559233" duration="629000" />
+      <workItem from="1695369340175" duration="15805000" />
+      <workItem from="1695405668880" duration="5423000" />
+      <workItem from="1695468630265" duration="4364000" />
+      <workItem from="1695485521410" duration="12404000" />
+      <workItem from="1695541457569" duration="18189000" />
+      <workItem from="1695629238374" duration="23795000" />
+      <workItem from="1695709731345" duration="18434000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1695199038752</created>
@@ -116,7 +181,77 @@
       <option name="project" value="LOCAL" />
       <updated>1695199038752</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Heels Spawn Mechanic">
+      <created>1695232376882</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695232376882</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated Heels Spawn">
+      <created>1695301325351</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301325351</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added States">
+      <created>1695301351064</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695301351064</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated States">
+      <created>1695413925503</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695413925503</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Managers">
+      <created>1695414056856</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695414056856</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added Pickable Heels">
+      <created>1695414090309</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695414090309</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added new State">
+      <created>1695667636350</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695667636350</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated Heels Mechanics">
+      <created>1695667687964</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695667687964</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added UI">
+      <created>1695667725474</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1695667725474</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated States">
+      <created>1695726799706</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695726799706</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +278,47 @@
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Created Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Project" />
+    <MESSAGE value="Added Heels Spawn Mechanic" />
+    <MESSAGE value="Updated Heels Spawn" />
+    <MESSAGE value="Added States" />
+    <MESSAGE value="Added Managers" />
+    <MESSAGE value="Added Pickable Heels" />
+    <MESSAGE value="Added new State" />
+    <MESSAGE value="Updated Heels Mechanics" />
+    <MESSAGE value="Added UI" />
+    <MESSAGE value="Updated States" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated States" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs</url>
+          <line>36</line>
+          <properties documentPath="F:\Projects\Unity\High Heels\Assets\UI\Scripts\LevelUIManager.cs" initialLine="36" containingFunctionPresentation="method 'Constructor'">
+            <startOffsets>
+              <option value="1138" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1139" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs</url>
+          <line>37</line>
+          <properties documentPath="F:\Projects\Unity\High Heels\Assets\UI\Scripts\LevelUIManager.cs" initialLine="37" containingFunctionPresentation="method 'Constructor'">
+            <startOffsets>
+              <option value="1152" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1252" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

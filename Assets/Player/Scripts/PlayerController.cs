@@ -3,6 +3,7 @@ using DG.Tweening;
 using Managers;
 using Player.Scripts.States;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 using StateMachine = States.StateMachine;
 using IState = States.IState;
@@ -51,7 +52,7 @@ namespace Player.Scripts
         public Vector2 InputPlayer { private set; get; }
         public Rigidbody Rb { private set; get; }
         public PlayerAnimationController PlayerAnimationController { private set; get; }
-        private PlayerIKController _playerIKController;
+        public PlayerIKController PlayerIKController { private set; get; }
         public Animator PlayerAnimator { private set; get; }
 
         private Vector3 StartPositionForMovement { set; get; }
@@ -76,20 +77,20 @@ namespace Player.Scripts
         private void Awake()
         {
             Rb = GetComponent<Rigidbody>();
+            PlayerIKController = GetComponent<PlayerIKController>();
 
             PlayerAnimator = GetComponent<Animator>();
             PlayerAnimationController = new PlayerAnimationController(this);
-            _playerIKController = GetComponent<PlayerIKController>();
 
             _stateMachine = new StateMachine();
 
             _idleState = new IdleState(this);
-            _walkState = new WalkState(this , _playerIKController);
+            _walkState = new WalkState(this , PlayerIKController);
             _deathState = new DeathState(this);
             _winDanceState = new WinDanceState(this);
             _winWalkState = new WinWalkState(this);
             _twineState = new TwineState(this);
-            _stickWalkState = new StickWalkState(this, _playerIKController);
+            _stickWalkState = new StickWalkState(this, PlayerIKController);
             
             GetCollidersFromRagDollRigidbodies();
             EnableRagDoll(false);

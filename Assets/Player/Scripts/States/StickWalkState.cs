@@ -34,9 +34,8 @@ namespace Player.Scripts.States
 
             _playerIKController.UpdateRootRotationZ(_zRotation);
             Controller.Move(velocity, false);
-
-            Debug.Log(_playerIKController.GetCurrentRootRotatorZAngle());
-            if (Mathf.Abs(_playerIKController.GetCurrentRootRotatorZAngle()) > Controller.GetMaxRootRotationZAngleToFall() - 1)
+            
+            if (!Controller.IsGrounded() || Mathf.Abs(_playerIKController.GetCurrentRootRotatorZAngle()) > Controller.GetMaxRootRotationZAngleToFall() - 1)
             {
                 Controller.SetState(PlayerStates.Death);
             }

@@ -1,16 +1,18 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player.Scripts
 {
     public class TheLowestHeelsPoint : MonoBehaviour
     {
-        [SerializeField] private HeelsSpawner heelsSpawner;
+        [FormerlySerializedAs("heelsSpawner")] [SerializeField] private HeelsManager heelsManager;
         private Transform lastHeelsTransform;
         private bool hasHeels;
         private void OnEnable()
         {
-            heelsSpawner.OnHeelsUpdated += UpdateLastHeelsTransform;
+            heelsManager.OnHeelsUpdated += UpdateLastHeelsTransform;
         }
 
         private void Awake()
@@ -22,30 +24,28 @@ namespace Player.Scripts
         {
             if (hasHeels)
             {
-                transform.localPosition =lastHeelsTransform.localPosition;
-                return;
+              transform.localPosition =lastHeelsTransform.localPosition;
             }
-
-            transform.localPosition = Vector3.zero;
 
         }
 
         private void UpdateLastHeelsTransform()
         {
-            if (heelsSpawner.Heels.Count > 0)
+            if (heelsManager.Heels.Count > 0)
             {
                 hasHeels = true;
-                lastHeelsTransform = heelsSpawner.Heels.Last().transform;
+                lastHeelsTransform = heelsManager.Heels.Last().transform;
             }
             else
             {
+                transform.localPosition = Vector3.zero;
                 hasHeels = false;
             }
         }
 
         private void OnDisable()
         {
-            heelsSpawner.OnHeelsUpdated -= UpdateLastHeelsTransform;
+            heelsManager.OnHeelsUpdated -= UpdateLastHeelsTransform;
         }
     }
 }

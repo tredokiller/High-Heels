@@ -13,14 +13,17 @@ namespace Player.Scripts
         [SerializeField] private Transform rightFoot;
 
         [SerializeField] private Transform leftThigh;
-            
-            
+        [SerializeField] private Transform rightThigh;
+
         [SerializeField] private Transform leftFootTransformTranslator;
         [SerializeField] private Transform rightFootTransformTranslator;
         
         [SerializeField] private GameObject heelsPrefab;
 
+        private const float SmoothRotationZValue = 8f;
+
         [Inject] private DiContainer _diContainer;
+        [Inject] private PlayerController _playerController;
         
         public List<Heels.Scripts.Heels> Heels { private set; get; }
 
@@ -31,14 +34,18 @@ namespace Player.Scripts
             Heels = new List<Heels.Scripts.Heels>();
         }
 
-        private void Update()
+        private void LateUpdate()
+        {
+            UpdateHeelTranslatorTransforms();
+        }
+
+        private void UpdateHeelTranslatorTransforms()
         {
             leftFootTransformTranslator.position = leftFoot.position;
             rightFootTransformTranslator.position = rightFoot.position;
 
-            //leftFootTransformTranslator.localRotation = Quaternion.Euler(leftFoot.localRotation.eulerAngles.x /2, leftFoot.localRotation.y, 0);
-            leftFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x / 2, 0, leftFoot.localRotation.eulerAngles.z);
-            rightFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x / 2, 0, rightFoot.localRotation.eulerAngles.z + 3);
+            leftFootTransformTranslator.localRotation = Quaternion.Euler(leftFoot.localRotation.eulerAngles.x  + 165, 0, leftThigh.rotation.eulerAngles.z + 3);
+            rightFootTransformTranslator.localRotation = Quaternion.Euler(rightFoot.localRotation.eulerAngles.x + 165, 0, rightThigh.rotation.eulerAngles.z - 3);
         }
 
         public void SpawnHeels()
