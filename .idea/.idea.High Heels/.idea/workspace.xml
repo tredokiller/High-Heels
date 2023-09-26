@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Fixed Bugs" />
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Added New APK">
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +124,7 @@
       <workItem from="1695541457569" duration="18189000" />
       <workItem from="1695629238374" duration="23795000" />
       <workItem from="1695709731345" duration="23966000" />
-      <workItem from="1695755993491" duration="610000" />
+      <workItem from="1695755993491" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1695199038752</created>
@@ -243,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695758624048</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added New APK">
+      <created>1695758912157</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1695758912157</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +294,8 @@
     <MESSAGE value="Bug Fixes" />
     <MESSAGE value="Bug fixes" />
     <MESSAGE value="Fixed Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bugs" />
+    <MESSAGE value="Added New APK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added New APK" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

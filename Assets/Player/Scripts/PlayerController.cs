@@ -22,7 +22,7 @@ namespace Player.Scripts
         [SerializeField] private float stickMoveSpeed = 3;
 
         [SerializeField] private float maxRootRotationZAngleToFall = 35f;
-        
+
         [SerializeField] private TheLowestHeelsPoint theLowestHeelsPoint;
         [SerializeField] private Transform middlePointOfPlayer;
         
@@ -38,7 +38,8 @@ namespace Player.Scripts
         private const float MaxDistanceToCheckObject = 0.55f;
         public const float MaxAngleToFallOnTwin = 15f;
 
-        public const float DurationChangePositionY = 0.2f; 
+        public const float DurationChangePositionY = 0.2f;
+        private const float DistanceToGround = 1.1f;
 
         [Header("Sensitivity")] 
         [SerializeField, Range(0, 150)] private float horizontalSensitivity = 0.1f;
@@ -273,7 +274,7 @@ namespace Player.Scripts
 
         public bool IsGrounded()
         {
-            return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1.1f, groundLayerMask));
+            return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, DistanceToGround, groundLayerMask));
         }
     }
 }
