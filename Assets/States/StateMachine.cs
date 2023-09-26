@@ -13,6 +13,7 @@ namespace States
                 var previousState = _state;
                 if (previousState != state)
                 {
+                    previousState.Exit();
                     state.Enter();
                 }
             }
@@ -29,6 +30,11 @@ namespace States
             {
                 _state.Update();
             }
+        }
+
+        public IState GetCurrentState()
+        {
+            return _state;
         }
     }
 }

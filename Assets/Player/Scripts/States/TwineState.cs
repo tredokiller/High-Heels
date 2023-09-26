@@ -5,8 +5,10 @@ namespace Player.Scripts.States
 {
     public class TwineState : StateBase<PlayerController>
     {
-        public TwineState(PlayerController controller) : base(controller) { }
-        
+        public TwineState(PlayerController controller) : base(controller)
+        {
+        }
+
         public override void Enter()
         {
             Controller.PlayerAnimationController.TriggerAnimation(PlayerStates.Twine);
@@ -15,10 +17,16 @@ namespace Player.Scripts.States
 
         public override void Update()
         {
-            var velocity = Controller.transform.forward.normalized * (Controller.GetMoveSpeed());
-            velocity.x = PlayerController.HorizontalOnTwineSensitivityMultiplier * Controller.GetHorizontalSensitivity() * Controller.InputPlayer.x * Controller.GetMoveSpeed();
-            
-            Controller.Move(velocity , true);
+            var velocity = Controller.transform.forward.normalized * (Controller.GetTwineMoveSpeed());
+            velocity.x = PlayerController.HorizontalOnTwineSensitivityMultiplier *
+                         Controller.GetHorizontalSensitivity() * Controller.InputPlayer.x * Controller.GetTwineMoveSpeed();
+
+            Controller.Move(velocity, false);
+
+            if (Mathf.Abs(Controller.transform.rotation.z) >= Mathf.Deg2Rad * PlayerController.MaxAngleToFallOnTwin || Controller.Rb.velocity.y < -7f)
+            {
+                Controller.SetState(PlayerStates.Death);
+            }
         }
 
         public override void Exit()

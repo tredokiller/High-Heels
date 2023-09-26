@@ -36,6 +36,9 @@ namespace Scenes.Zones.Scripts
                 case ZoneTypes.Twine:
                     playerController.SetState(PlayerStates.Twine);
                     break;
+                case ZoneTypes.Stick:
+                    playerController.SetState(PlayerStates.StickWalking);
+                    break;
             }
         }
 

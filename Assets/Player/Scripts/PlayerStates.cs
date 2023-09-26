@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Player.Scripts
 {
     public enum PlayerStates
@@ -8,6 +6,8 @@ namespace Player.Scripts
         Walking,
         WinWalking, 
         WinDancing,
+        Twine,
+        StickWalking,
         Death
     }
 }

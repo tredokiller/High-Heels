@@ -5,69 +5,105 @@ using Player.Scripts.States;
 using UnityEngine;
 using Zenject;
 using StateMachine = States.StateMachine;
+using IState = States.IState;
 
 namespace Player.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(PlayerIKController))]
     public class PlayerController : MonoBehaviour
     {
         [Header("Main")] 
         [SerializeField] private float moveSpeed = 3;
+        [SerializeField] private float twineMoveSpeed = 5;
+        [SerializeField] private float stickMoveSpeed = 3;
+
+        [SerializeField] private float maxRootRotationZAngleToFall = 35f;
+        
         [SerializeField] private TheLowestHeelsPoint theLowestHeelsPoint;
+        [SerializeField] private Transform middlePointOfPlayer;
+        
         [SerializeField] private LayerMask groundLayerMask;
         [SerializeField] private LayerMask obstacleLayerMask;
+        [SerializeField] private LayerMask interactionLayerMask;
 
         [Header("RagDoll")]
         [SerializeField] private Rigidbody[] ragDollRigidbodies;
         private Collider[] ragDollColliders;
-        
-        public const float MaxSideDistanceToMove= 3.5f;
+
+        private const float MaxSideDistanceToMove= 3.5f;
+        private const float MaxDistanceToCheckObject = 0.55f;
+        public const float MaxAngleToFallOnTwin = 15f;
+
+        public const float DurationChangePositionY = 0.2f; 
 
         [Header("Sensitivity")] 
         [SerializeField, Range(0, 150)] private float horizontalSensitivity = 0.1f;
+        public const float HorizontalOnTwineSensitivityMultiplier = 0.5f;
         
         private StateMachine _stateMachine;
         private InputManager _inputManager;
-
-        public HeelsSpawner HeelsSpawner { private set; get; }
-        public InputMap.PlayerActions PlayerActions { private set; get; }
+        private LevelManager _levelManager;
+        private HeelsManager HeelsManager { set; get; }
+        private InputMap.PlayerActions PlayerActions { set; get; }
         public Vector2 InputPlayer { private set; get; }
-        public Vector2 NonZeroInputPlayer { private set; get; }
         public Rigidbody Rb { private set; get; }
         public PlayerAnimationController PlayerAnimationController { private set; get; }
+        private PlayerIKController _playerIKController;
         public Animator PlayerAnimator { private set; get; }
 
-        public Vector3 StartPositionForMovement { private set; get; }
+        private Vector3 StartPositionForMovement { set; get; }
 
-        private IdleState idleState;
-        private WalkState walkState;
-        private DeathState deathState;
+        private IState _idleState;
+        private IState _walkState;
+        private IState _deathState;
+        private IState _winDanceState;
+        private IState _winWalkState;
+        private IState _twineState;
+        private IState _stickWalkState;
+        
+        public PlayerStates CurrentPlayerStateType { private set; get; }
+
+        public Action<PlayerStates> OnPlayerWon;
+
+        public Action OnPlayerDied;
+        
+        public Action OnPlayerStickWalkingStarted;
+        public Action OnPlayerStickWalkingFinished;
 
         private void Awake()
         {
             Rb = GetComponent<Rigidbody>();
-            
+
             PlayerAnimator = GetComponent<Animator>();
             PlayerAnimationController = new PlayerAnimationController(this);
+            _playerIKController = GetComponent<PlayerIKController>();
 
             _stateMachine = new StateMachine();
 
-            idleState = new IdleState(this);
-            walkState = new WalkState(this);
-            deathState = new DeathState(this);
+            _idleState = new IdleState(this);
+            _walkState = new WalkState(this , _playerIKController);
+            _deathState = new DeathState(this);
+            _winDanceState = new WinDanceState(this);
+            _winWalkState = new WinWalkState(this);
+            _twineState = new TwineState(this);
+            _stickWalkState = new StickWalkState(this, _playerIKController);
             
             GetCollidersFromRagDollRigidbodies();
             EnableRagDoll(false);
-            
-            _stateMachine.SetState(walkState);
+
+            SetState(PlayerStates.Idling);
         }
 
         [Inject]
-        private void Constructor(InputManager inputManager, HeelsSpawner heelsSpawner)
+        private void Constructor(InputManager inputManager, HeelsManager heelsManager, LevelManager levelManager)
         {
             _inputManager = inputManager ? inputManager : throw new ArgumentNullException(nameof(inputManager));
-            HeelsSpawner = heelsSpawner ? heelsSpawner : throw new ArgumentNullException(nameof(heelsSpawner));
+            HeelsManager = heelsManager ? heelsManager : throw new ArgumentNullException(nameof(heelsManager));
+            _levelManager = levelManager ? levelManager : throw new ArgumentNullException(nameof(levelManager));
+            
             PlayerActions = _inputManager.GetPlayerActions();
         }
 
@@ -76,10 +112,15 @@ namespace Player.Scripts
             StartPositionForMovement = transform.position;
         }
 
+        private void OnEnable()
+        {
+            _levelManager.OnLevelStarted += () => SetState(PlayerStates.Walking);
+        }
+
         public void AddHeels()
         {
-            transform.DOMoveY(transform.position.y + HeelsSpawner.DistanceBetweenHeels / 1.3f, 0.2f);
-            HeelsSpawner.SpawnHeels();
+            transform.DOMoveY(transform.position.y + HeelsManager.DistanceBetweenHeels, DurationChangePositionY);
+            HeelsManager.SpawnHeels();
         }
 
         private void GetCollidersFromRagDollRigidbodies()
@@ -93,43 +134,107 @@ namespace Player.Scripts
         
         public void EnableRagDoll(bool isEnabled)
         {
+            EnableRagDollColliders(isEnabled);
+            for (int i = 0; i < ragDollRigidbodies.Length; i++)
+            {
+                ragDollRigidbodies[i].isKinematic = !isEnabled;
+            }
+        }
+
+        private void EnableRagDollColliders(bool isEnabled)
+        {
             for (int i = 0; i < ragDollRigidbodies.Length; i++)
             {
                 ragDollColliders[i].enabled = isEnabled;
-                ragDollRigidbodies[i].isKinematic = !isEnabled;
             }
         }
 
         public void Move(Vector3 velocity, bool isClamped)
         {
-            if (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1f , groundLayerMask))
+            CheckForwardObject();
+            if (IsGrounded())
             {
-                if (HeelsSpawner.Heels.Count > 0)
-                {
-                    Rb.constraints |= RigidbodyConstraints.FreezePositionY;
+                if (HeelsManager.Heels.Count > 0)
+                { Rb.constraints |= RigidbodyConstraints.FreezePositionY;
                 }
             }
             else
             {
-                Rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+               Rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             }
             
-            var newPosition = transform.position + velocity * Time.fixedDeltaTime;
-            newPosition.x = Mathf.Clamp(newPosition.x, StartPositionForMovement.x - MaxSideDistanceToMove, 
-                StartPositionForMovement.x + MaxSideDistanceToMove);
+            if (isClamped)
+            {
+                var position = Rb.position + velocity * Time.deltaTime;
+                position.x = Mathf.Clamp(position.x, StartPositionForMovement.x - MaxSideDistanceToMove, 
+                    StartPositionForMovement.x + MaxSideDistanceToMove);
+
+                Vector3 neededVelocity = (position - Rb.position) / Time.deltaTime;
+                
+                velocity = neededVelocity;
+            }
+            Rb.velocity = new Vector3(velocity.x, Rb.velocity.y, velocity.z);
             
-            Rb.MovePosition(newPosition);
+        }
+
+        private void CheckForwardObject()
+        {
+            var ray = new Ray(middlePointOfPlayer.position, Vector3.forward);
+
+            if (Physics.Raycast(ray, MaxDistanceToCheckObject , obstacleLayerMask))
+            {
+                SetState(PlayerStates.Death);
+            }
+
+            if (Physics.Raycast(ray, MaxDistanceToCheckObject, interactionLayerMask))
+            {
+                SetState(PlayerStates.WinDancing);
+            }
         }
         
         private void Update()
         {
             InputPlayer = PlayerActions.TouchVelocity.ReadValue<Vector2>();
-            if (InputPlayer != Vector2.zero)
+        }
+
+        public void SetState(PlayerStates state)
+        {
+            var previousState = CurrentPlayerStateType;
+            CurrentPlayerStateType = state;
+            switch (state)
             {
-                NonZeroInputPlayer = InputPlayer;
+                case PlayerStates.Death:
+                    _stateMachine.SetState(_deathState);
+                    break;
+                case PlayerStates.Walking:
+                    _stateMachine.SetState(_walkState);
+                    break;
+                case PlayerStates.Idling:
+                    _stateMachine.SetState(_idleState);
+                    break;
+                case PlayerStates.WinDancing:
+                    _stateMachine.SetState(_winDanceState);
+                    break;
+                case PlayerStates.WinWalking:
+                    _stateMachine.SetState(_winWalkState);
+                    break;
+                case PlayerStates.Twine:
+                    _stateMachine.SetState(_twineState);
+                    break;
+                case PlayerStates.StickWalking:
+                    _stateMachine.SetState(_stickWalkState);
+                    break;
+                default:
+                    CurrentPlayerStateType = previousState;
+                    break;
             }
         }
-        
+
+        private void OnDisable()
+        {
+            _levelManager.OnLevelStarted -= () => SetState(PlayerStates.Walking);
+        }
+
         private void FixedUpdate()
         {
             _stateMachine.UpdateStateMachine();
@@ -140,19 +245,29 @@ namespace Player.Scripts
             return moveSpeed;
         }
 
+        public float GetTwineMoveSpeed()
+        {
+            return twineMoveSpeed;
+        }
+
+        public float GetStickMoveSpeed()
+        {
+            return stickMoveSpeed;
+        }
+        
         public float GetHorizontalSensitivity()
         {
             return horizontalSensitivity;
         }
 
-        public Transform GetTheLowestPoint()
+        public float GetMaxRootRotationZAngleToFall()
         {
-            return theLowestHeelsPoint.transform;
+            return maxRootRotationZAngleToFall;
         }
 
-        public LayerMask GetGroundLayerMask()
+        public bool IsGrounded()
         {
-            return groundLayerMask;
+            return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1f, groundLayerMask));
         }
     }
 }

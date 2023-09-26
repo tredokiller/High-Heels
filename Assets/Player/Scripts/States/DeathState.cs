@@ -12,6 +12,7 @@ namespace Player.Scripts.States
         
         public override void Enter()
         {
+            Controller.OnPlayerDied.Invoke();
             Controller.PlayerAnimator.enabled = false;
             Controller.EnableRagDoll(true);
         }
@@ -25,8 +26,6 @@ namespace Player.Scripts.States
         {
             
         }
-
-    
     }
 }
  
