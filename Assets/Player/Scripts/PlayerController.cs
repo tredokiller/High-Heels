@@ -273,7 +273,7 @@ namespace Player.Scripts
 
         public bool IsGrounded()
         {
-            return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1f, groundLayerMask));
+            return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, 1.1f, groundLayerMask));
         }
     }
 }

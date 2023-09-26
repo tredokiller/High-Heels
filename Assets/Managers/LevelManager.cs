@@ -69,7 +69,7 @@ namespace Managers
         private void MultiplyDiamonds(int multiplier)
         {
             MultipliedDiamonds = CollectedDiamonds * multiplier;
-            OnDiamondsUpdated.Invoke();
+            OnDiamondsUpdated?.Invoke();
         }
 
         private void CompleteLevel(PlayerStates state)

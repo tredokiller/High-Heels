@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Small changes">
+    <list default="true" id="71d73ab5-d140-45f0-98d0-5c8b0bd15d76" name="Changes" comment="Bug Fixes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.High Heels/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Obstacle/Block.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Obstacle/Block.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/Heels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Heels/PickupableHeels.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Managers/LevelManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/States/TwineState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/States/TwineState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level03.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WinPlatform/WinPlatform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WinPlatform/WinPlatform.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/LevelUIManager.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Installers/LevelInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/Projects/Unity/High Heels/Assets/Obstacle/Block.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/Projects/Unity/High Heels/Assets/Obstacle/Block.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://F:/Projects/Unity/High Heels/Assets/Player/AnimationController.controller" root0="SKIP_HIGHLIGHTING" />
@@ -147,7 +150,7 @@
       <workItem from="1695485521410" duration="12404000" />
       <workItem from="1695541457569" duration="18189000" />
       <workItem from="1695629238374" duration="23795000" />
-      <workItem from="1695709731345" duration="20927000" />
+      <workItem from="1695709731345" duration="23034000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1695199038752</created>
@@ -247,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695731712191</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Bug Fixes">
+      <created>1695733850238</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695733850238</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +296,8 @@
     <MESSAGE value="Updated Levels" />
     <MESSAGE value="Added IK" />
     <MESSAGE value="Small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small changes" />
+    <MESSAGE value="Bug Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
