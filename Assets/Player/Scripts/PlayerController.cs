@@ -68,12 +68,12 @@ namespace Player.Scripts
         
         public PlayerStates CurrentPlayerStateType { private set; get; }
 
-        public Action<PlayerStates> OnPlayerWon;
+        public event Action<PlayerStates> OnPlayerWon;
 
-        public Action OnPlayerDied;
+        public event Action OnPlayerDied;
         
-        public Action OnPlayerStickWalkingStarted;
-        public Action OnPlayerStickWalkingFinished;
+        public event Action OnPlayerStickWalkingStarted;
+        public event Action OnPlayerStickWalkingFinished;
 
         private void Awake()
         {
@@ -275,6 +275,26 @@ namespace Player.Scripts
         public bool IsGrounded()
         {
             return (Physics.Raycast(theLowestHeelsPoint.transform.position, Vector3.down, DistanceToGround, groundLayerMask));
+        }
+
+        public virtual void OnPlayerDiedHandler()
+        {
+            OnPlayerDied?.Invoke();
+        }
+
+        public virtual void OnPlayerStickWalkingStartedHandler()
+        {
+            OnPlayerStickWalkingStarted?.Invoke();
+        }
+
+        public virtual void OnPlayerStickWalkingFinishedHandler()
+        {
+            OnPlayerStickWalkingFinished?.Invoke();
+        }
+
+        public virtual void OnPlayerWonHandler(PlayerStates obj)
+        {
+            OnPlayerWon?.Invoke(obj);
         }
     }
 }

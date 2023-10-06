@@ -21,23 +21,23 @@ namespace Managers
 
         private bool _isLevelStarted; 
 
-        public Action OnLevelFullyCompleted;
-        public Action OnLevelCompleted;
-        public Action OnLevelFailed;
-        public Action OnLevelStarted;
-        public Action OnDiamondsUpdated;
+        public event Action OnLevelFullyCompleted;
+        public event Action OnLevelCompleted;
+        public event Action OnLevelFailed;
+        public event Action OnLevelStarted;
+        public event Action OnDiamondsUpdated;
 
-        public static  Action<Levels> OnLevelLoaded;
+        public static event Action<Levels> OnLevelLoaded;
 
-        public static Action OnLevelRestart;
-        public static Action OnLevelExit;
+        public static event Action OnLevelRestart;
+        public static event Action OnLevelExit;
 
         public int CollectedDiamonds { private set; get; }
         public int MultipliedDiamonds { private set; get; }
         
         private void Awake()
         {
-            OnLevelLoaded.Invoke(level);
+            OnLevelLoaded?.Invoke(level);
         }
 
         private void OnEnable()
@@ -63,7 +63,7 @@ namespace Managers
         {
             CollectedDiamonds += 1;
             MultipliedDiamonds = CollectedDiamonds;
-            OnDiamondsUpdated.Invoke();
+            OnDiamondsUpdated?.Invoke();
         }
 
         private void MultiplyDiamonds(int multiplier)
@@ -89,7 +89,7 @@ namespace Managers
             }
 
             _isLevelStarted = true;
-            OnLevelStarted.Invoke();
+            OnLevelStarted?.Invoke();
         }
 
         private void LooseLevel()
@@ -99,12 +99,12 @@ namespace Managers
 
         private void ExitLevel()
         {
-            OnLevelExit.Invoke();
+            OnLevelExit?.Invoke();
         }
 
         private void RestartLevel()
         {
-            OnLevelRestart.Invoke();
+            OnLevelRestart?.Invoke();
         }
 
         public Levels GetLevel()

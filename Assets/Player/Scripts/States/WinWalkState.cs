@@ -12,7 +12,7 @@ namespace Player.Scripts.States
         
         public override void Enter()
         {
-            Controller.OnPlayerWon.Invoke(PlayerStates.WinWalking);
+            Controller.OnPlayerWonHandler(PlayerStates.WinWalking);
             Controller.PlayerAnimationController.TriggerAnimation(PlayerStates.WinWalking);
         }
 

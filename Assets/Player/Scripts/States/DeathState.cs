@@ -12,7 +12,8 @@ namespace Player.Scripts.States
         
         public override void Enter()
         {
-            Controller.OnPlayerDied.Invoke();
+            Controller.OnPlayerDiedHandler();
+            
             Controller.PlayerAnimator.enabled = false;
             Controller.EnableRagDoll(true);
         }

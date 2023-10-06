@@ -11,14 +11,10 @@ namespace Installers
 
         public override void InstallBindings()
         {
-            var inputManagerInstance = Instantiate(inputManager);
-            var gameManagerInstance = Instantiate(gameManager);
-            
-            DontDestroyOnLoad(gameManagerInstance);
-            DontDestroyOnLoad(inputManagerInstance);
-            
-            Container.Bind<InputManager>().FromComponentOn(inputManagerInstance).AsSingle();
-            Container.Bind<GameManager>().FromComponentOn(gameManagerInstance).AsSingle();
+            Container.Bind<InputManager>().FromComponentInNewPrefab(inputManager).UnderTransform(transform).AsSingle()
+                .NonLazy();
+            Container.Bind<GameManager>().FromComponentInNewPrefab(gameManager).UnderTransform(transform).AsSingle()
+                .NonLazy();
         }
     }
 }

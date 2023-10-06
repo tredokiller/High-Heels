@@ -18,7 +18,7 @@ namespace Player.Scripts.States
         public override void Enter()
         {
             Controller.PlayerAnimationController.TriggerAnimation(PlayerStates.StickWalking);
-            Controller.OnPlayerStickWalkingStarted.Invoke();
+            Controller.OnPlayerStickWalkingStartedHandler();
         }
 
         public override void Update()
@@ -43,7 +43,7 @@ namespace Player.Scripts.States
 
         public override void Exit()
         {
-            Controller.OnPlayerStickWalkingFinished.Invoke();
+            Controller.OnPlayerStickWalkingFinishedHandler();
             _playerIKController.UpdateRootRotationZ(0);
         }
     }

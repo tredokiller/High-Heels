@@ -27,7 +27,7 @@ namespace Player.Scripts
         
         public List<Heels.Scripts.Heels> Heels { private set; get; }
 
-        public Action OnHeelsUpdated;
+        public event Action OnHeelsUpdated;
 
         private void Awake()
         {
@@ -65,7 +65,7 @@ namespace Player.Scripts
             
             Heels.Add(heels);
             
-            OnHeelsUpdated.Invoke();
+            OnHeelsUpdated?.Invoke();
         }
 
         private void SetHeelsPositionRotation(Transform leftHeel, Transform rightHeel ,out Vector3 heelsSpawnPosition)
@@ -97,7 +97,7 @@ namespace Player.Scripts
                 heels.GetRightHeel().SetParent(heels.transform);
                 heels.transform.SetParent(null);
                 
-                OnHeelsUpdated.Invoke();
+                OnHeelsUpdated?.Invoke();
             }
         }
     }
