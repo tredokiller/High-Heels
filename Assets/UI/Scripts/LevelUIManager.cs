@@ -26,8 +26,8 @@ namespace UI.Scripts
         [SerializeField] private RectTransform stickMenu;
         [SerializeField] private RectTransform stickArrow;
         
-        public Action OnNextLevelButtonPressed;
-        public Action OnRestartLevelButtonPressed;
+        public event Action OnNextLevelButtonPressed;
+        public event Action OnRestartLevelButtonPressed;
 
         private const string LevelText = "Level ";
         private bool _isStickMenuOpened;
@@ -45,11 +45,12 @@ namespace UI.Scripts
             
             nextLevelButton.onClick.AddListener(ToNextLevelButtonPressed);
             restartLevelButton.onClick.AddListener(RestartLevelButtonPressed);
-
-            SetVisibleTapToStartMenu(true);
-            SetVisibleNextLevelMenu(false);
-            SetVisibleRestartLevelMenu(false);
-            SetVisibleStickMenu(false);
+            
+            HideRestartLevelMenu();
+            HideNextLevelMenu();
+            
+            ShowStickMenu();
+            ShowTapToStartMenu();
 
             levelInfoText.text = LevelText + ((int)_levelManager.GetLevel() + 1);
             UpdateCountOfDiamonds();
@@ -65,24 +66,37 @@ namespace UI.Scripts
 
         private void OnEnable()
         {
-            _playerController.OnPlayerStickWalkingStarted += () => SetVisibleStickMenu(true);
-            _playerController.OnPlayerStickWalkingFinished += () => SetVisibleStickMenu(false);
-            _levelManager.OnLevelStarted += () => SetVisibleTapToStartMenu(false);
-            _levelManager.OnLevelCompleted += () => SetVisibleNextLevelMenu(true);
-            _levelManager.OnLevelFailed += () => SetVisibleRestartLevelMenu(true);
+            _playerController.OnPlayerStickWalkingStarted  += ShowStickMenu;
+            _playerController.OnPlayerStickWalkingFinished += HideStickMenu;
+            _levelManager.OnLevelStarted +=  HideTapToStartMenu;
+            _levelManager.OnLevelCompleted += ShowNextLevelMenu;
+            _levelManager.OnLevelFailed += ShowRestartLevelMenu;
             _levelManager.OnDiamondsUpdated += UpdateCountOfDiamonds;
         }
 
-        private void SetVisibleTapToStartMenu(bool isVisible)
+        private void HideTapToStartMenu()
         {
-            tapToStartMenu.gameObject.SetActive(isVisible);
+            tapToStartMenu.gameObject.SetActive(false);
         }
 
-        private void SetVisibleStickMenu(bool isVisible)
+        private void ShowTapToStartMenu()
         {
-            _isStickMenuOpened = isVisible;
-            stickMenu.gameObject.SetActive(isVisible);
+            tapToStartMenu.gameObject.SetActive(true);
         }
+        
+        private void HideStickMenu()
+        {
+            _isStickMenuOpened = true;
+            stickMenu.gameObject.SetActive(true);
+        }
+        
+        private void ShowStickMenu()
+        {
+            _isStickMenuOpened = false;
+            stickMenu.gameObject.SetActive(false);
+        }
+        
+        
 
         private void UpdateStickMenuArrow()
         {
@@ -92,14 +106,24 @@ namespace UI.Scripts
         }
         
 
-        private void SetVisibleNextLevelMenu(bool isVisible)
+        private void ShowNextLevelMenu()
         {
-            nextLevelButton.gameObject.SetActive(isVisible);
+            nextLevelButton.gameObject.SetActive(true);
         }
 
-        private void SetVisibleRestartLevelMenu(bool isVisible)
+        private void HideNextLevelMenu()
         {
-            restartLevelButton.gameObject.SetActive(isVisible);
+            nextLevelButton.gameObject.SetActive(false);
+        }
+
+        private void ShowRestartLevelMenu()
+        {
+            restartLevelButton.gameObject.SetActive(true);
+        }
+
+        private void HideRestartLevelMenu()
+        {
+            restartLevelButton.gameObject.SetActive(false);
         }
 
         private void UpdateCountOfDiamonds()
@@ -112,22 +136,22 @@ namespace UI.Scripts
             restartLevelButton.onClick.RemoveListener(RestartLevelButtonPressed);
             nextLevelButton.onClick.RemoveListener(ToNextLevelButtonPressed);
             
-            _playerController.OnPlayerStickWalkingStarted -= () => SetVisibleStickMenu(true);
-            _playerController.OnPlayerStickWalkingFinished -= () => SetVisibleStickMenu(false);
-            _levelManager.OnLevelStarted -= () => SetVisibleTapToStartMenu(false);
-            _levelManager.OnLevelCompleted -= () => SetVisibleNextLevelMenu(true);
-            _levelManager.OnLevelFailed -= () => SetVisibleRestartLevelMenu(true);
+            _playerController.OnPlayerStickWalkingStarted  -= ShowStickMenu;
+            _playerController.OnPlayerStickWalkingFinished -= HideStickMenu;
+            _levelManager.OnLevelStarted -= HideTapToStartMenu;
+            _levelManager.OnLevelCompleted -= ShowNextLevelMenu;
+            _levelManager.OnLevelFailed -= ShowRestartLevelMenu;
             _levelManager.OnDiamondsUpdated -= UpdateCountOfDiamonds;
         }
 
         private void ToNextLevelButtonPressed()
         {
-            OnNextLevelButtonPressed.Invoke();
+            OnNextLevelButtonPressed?.Invoke();
         }
 
         private void RestartLevelButtonPressed()
         {
-            OnRestartLevelButtonPressed.Invoke();
+            OnRestartLevelButtonPressed?.Invoke();
         }
     }
 }

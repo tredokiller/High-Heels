@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Common.Simple_Scene_Fade_Load_System.Scripts;
 using ModestTree;
@@ -23,7 +22,7 @@ namespace Managers
         {
             LevelManager.OnLevelLoaded += UpdateCurrentLevel;
             LevelManager.OnLevelExit += NextLevel;
-            LevelManager.OnLevelRestart += () => LoadLevel(currentLevel);
+            LevelManager.OnLevelRestart += RestartLevel;
         }
 
         private void UpdateCurrentLevel(Levels level)
@@ -48,6 +47,11 @@ namespace Managers
             Initiate.Fade(level.ToString() , Color.black, TransitionBetweenLevelsDuration);
         }
 
+        private void RestartLevel()
+        {
+            LoadLevel(currentLevel);
+        }
+
         private void SetFrameRate()
         {
             QualitySettings.vSyncCount = 0;
@@ -60,7 +64,7 @@ namespace Managers
         {
             LevelManager.OnLevelLoaded -= UpdateCurrentLevel;
             LevelManager.OnLevelExit -= NextLevel;
-            LevelManager.OnLevelRestart -= () => LoadLevel(currentLevel);
+            LevelManager.OnLevelRestart -= RestartLevel;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -19,7 +18,7 @@ namespace Player.Scripts
 
         private void OnEnable()
         {
-            playerController.OnPlayerDied += () => rig.weight = 0;
+            playerController.OnPlayerDied += SetRigToZero;
         }
 
         public void UpdateSpineRotationZ(float currentZVelocity)
@@ -28,6 +27,11 @@ namespace Player.Scripts
             rotation.z = Mathf.LerpAngle(rotation.z, currentZVelocity * AngleZMultiplier, SmoothLerpValue * Time.deltaTime);
             
             spineRotator.transform.rotation = Quaternion.Euler(rotation);
+        }
+
+        private void SetRigToZero()
+        {
+            rig.weight = 0;
         }
 
         public void UpdateRootRotationZ(float currentZVelocity)
@@ -45,7 +49,7 @@ namespace Player.Scripts
         
         private void OnDisable()
         {
-            playerController.OnPlayerDied -= () => rig.weight = 0;
+            playerController.OnPlayerDied -= SetRigToZero;
         }
     }
 }
